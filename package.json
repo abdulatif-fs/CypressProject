@@ -1,0 +1,27 @@
+{
+  "name": "cypress-sauce-demo-tests",
+  "version": "1.0.0",
+  "description": "Cypress tests for Sauce Demo website",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run --browser chrome",
+    "test:headed": "cypress run --headed --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge",
+    "record": "npx cypress run --record --key da9f349f-9d39-4027-abc6-fd89dea74e3b"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "csvdata": "^2.0.0",
+    "cypress": "^14.3.1",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "chai-json-schema": "^1.5.1",
+    "cypress-ajv-schema-validator": "^2.0.1",
+    "save-dev": "^0.0.1-security",
+    "xlsx": "^0.18.5"
+  }
+}
