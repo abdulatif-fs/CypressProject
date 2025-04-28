@@ -34,23 +34,6 @@ describe('Sauce Demo Login', () => {
       err.should('contain','Username and password do not match any user in this service')
       
     })
-    it.skip("should use Excel data to perform login tests", () => {
-      cy.readExcelFile("testData.xlsx").then((data) => {
-        data.forEach((row) => {
-          cy.get('[data-test="username"]').type(row.username);
-          cy.get('[data-test="password"]').type(row.password);
-          cy.get('[id="login-button"]').click();
-  
-          if (row.expected === "success") {
-            cy.url().should('include', '/inventory.html')
-          } else {
-            let err = cy.get('[data-test="error"]')
-            err.should('be.visible')
-            err.should('contain','Username and password do not match any user in this service')
-          }
-        });
-      });
-    });
     
   
   }) 
