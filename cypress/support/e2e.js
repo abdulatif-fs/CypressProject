@@ -38,3 +38,4 @@ Cypress.Commands.add('getResponse', (route, method) => {
         return res
     })
 })
+Cypress.env('x_api_key', 'reqres-free-v1')

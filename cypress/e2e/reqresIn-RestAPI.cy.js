@@ -5,7 +5,8 @@ describe('All Get API', () => {
         it('status code 200', ()=> {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(200)
             })
@@ -18,7 +19,8 @@ describe('All Get API', () => {
         it('validate response schema', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.body).to.be.jsonSchema(apiUserSchema)
             })
@@ -29,7 +31,8 @@ describe('All Get API', () => {
         it('status code 200', ()=> {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(200)
             })
@@ -37,7 +40,8 @@ describe('All Get API', () => {
         it('validate response schema', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.body).to.be.jsonSchema(singleUserSchema)
             })
@@ -49,7 +53,8 @@ describe('All Get API', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
                 method: `get`,
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(404)
             })
@@ -60,7 +65,8 @@ describe('All Get API', () => {
         it('status code 200', ()=> {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(200)
             })
@@ -68,7 +74,8 @@ describe('All Get API', () => {
         it('validate response schema', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.body).to.be.jsonSchema(listResourceSchema)
             })
@@ -79,7 +86,8 @@ describe('All Get API', () => {
         it('status code 200', ()=> {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(200)
             })
@@ -87,7 +95,8 @@ describe('All Get API', () => {
         it('validate response schema', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
-                method: `get`
+                method: `get`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.body).to.be.jsonSchema(singleResourceSchema)
             })
@@ -99,7 +108,8 @@ describe('All Get API', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
                 method: `get`,
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((res) => {
                 expect(res.status).to.eq(404)
             })
@@ -116,7 +126,8 @@ describe('All Post API', () => {
                 body: {
                     "name": "morpheus",
                      "job": "leader"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(201)
             })
@@ -128,7 +139,8 @@ describe('All Post API', () => {
                 body: {
                     "name": "morpheus",
                      "job": "leader"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body).to.be.jsonSchema({name: {type: 'string'}, job: {type: 'string'}, updatedAt: {type: 'string'}})
             })
@@ -143,7 +155,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in",
                     "password": "pistol"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(200)
             })
@@ -155,7 +168,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in",
                     "password": "pistol"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body).to.be.jsonSchema({id: {type: 'number'}, token: {type: 'string'}})
             })
@@ -170,7 +184,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in"
                 },
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(400)
             })
@@ -182,7 +197,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in"
                 },
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body.error).to.equal('Missing password')
             })
@@ -197,7 +213,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in",
                     "password": "cityslicka"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(200)
             })
@@ -209,7 +226,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "eve.holt@reqres.in",
                     "password": "cityslicka"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body).to.be.jsonSchema({token: {type: 'string'}})
             })
@@ -224,7 +242,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "peter@klaven"
                 },
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(400)
             })
@@ -236,7 +255,8 @@ describe('All Post API', () => {
                 body: {
                     "email": "peter@klaven"
                 },
-                failOnStatusCode: false
+                failOnStatusCode: false,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body.error).to.equal('Missing password')
             })
@@ -253,7 +273,8 @@ describe('API PUT and DELETE', () => {
                 body: {
                     "name": "morpheus",
                     "job": "zion resident"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(200)
             })
@@ -265,7 +286,8 @@ describe('API PUT and DELETE', () => {
                 body: {
                     "name": "morpheus",
                     "job": "zion resident"
-                }
+                },
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.body).to.be.jsonSchema({name: {type: 'string'}, job: {type: 'string'}, updatedAt: {type: 'string'}})
             })
@@ -277,6 +299,7 @@ describe('API PUT and DELETE', () => {
             cy.request({
                 url: `https://reqres.in${route}`,
                 method: `delete`,
+                headers: {"x-api-key" : Cypress.env('x_api_key')}
             }).should((response) => {
                 expect(response.status).to.eq(204)
             })
