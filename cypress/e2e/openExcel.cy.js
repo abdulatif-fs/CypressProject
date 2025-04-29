@@ -21,7 +21,6 @@ describe('Open Excel', () => {
                   err.should('contain','Username and password do not match any user in this service')
                 }
             });
-
         });
     })
 })

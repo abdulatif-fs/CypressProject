@@ -34,6 +34,4 @@ describe('Sauce Demo Login', () => {
       err.should('contain','Username and password do not match any user in this service')
       
     })
-    
-  
-  }) 
+}) 
