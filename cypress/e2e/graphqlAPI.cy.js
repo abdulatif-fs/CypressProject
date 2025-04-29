@@ -1,5 +1,5 @@
-import { capsulesSchema, capsuleByIdSchema, companySchema, dragonsSchema } from "../fixtures/graphqlschema";
-import { capsulesQuery, capsuleByIdQuery, companyQuery, dragonsQuery } from "../fixtures/graphqlQuery";
+import { capsulesSchema, capsuleByIdSchema, companySchema, dragonsSchema, historySchema, rocketsSchema, shipsSchema, coresSchema } from "../fixtures/graphqlschema";
+import { capsulesQuery, capsuleByIdQuery, companyQuery, dragonsQuery, historyQuery, rokectsQuery, shipsQuery, coresQuery } from "../fixtures/graphqlQuery";
 
 const method = 'post'
 const url = 'https://spacex-production.up.railway.app/'
@@ -100,6 +100,102 @@ describe('GraphQL API', () => {
                 }
             }).then((res) => {
                 expect(res.body).to.be.jsonSchema(dragonsSchema)
+            })
+        })
+    })
+    describe('+ Query History', () => {
+        it('Check status response', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: historyQuery
+                }
+            }).then((res) => {
+                expect(res.status).to.equal(200)
+            })
+        })
+        it('check object schema', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: historyQuery,
+                }
+            }).then((res) => {
+                expect(res.body).to.be.jsonSchema(historySchema)
+            })
+        })
+    })
+    describe('+ Query Rockets', () => {
+        it('Check status response', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: rokectsQuery
+                }
+            }).then((res) => {
+                expect(res.status).to.equal(200)
+            })
+        })
+        it('check object schema', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: rokectsQuery,
+                }
+            }).then((res) => {
+                expect(res.body).to.be.jsonSchema(rocketsSchema)
+            })
+        })
+    })
+    describe('+ Query Ships', () => {
+        it('Check status response', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: shipsQuery
+                }
+            }).then((res) => {
+                expect(res.status).to.equal(200)
+            })
+        })
+        it('check object schema', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: shipsQuery,
+                }
+            }).then((res) => {
+                expect(res.body).to.be.jsonSchema(shipsSchema)
+            })
+        })
+    })
+    describe('+ Query cores', () => {
+        it('Check status response', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: coresQuery
+                }
+            }).then((res) => {
+                expect(res.status).to.equal(200)
+            })
+        })
+        it('check object schema', () => {
+            cy.request({
+                method: method,
+                url: url,
+                body: {
+                query: coresQuery,
+                }
+            }).then((res) => {
+                expect(res.body).to.be.jsonSchema(coresSchema)
             })
         })
     })

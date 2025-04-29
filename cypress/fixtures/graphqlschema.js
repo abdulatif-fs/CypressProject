@@ -28,7 +28,6 @@ export const capsulesSchema = {
         }
     }
 }
-
 export const capsuleByIdSchema = {
     data:{
         type: 'object',
@@ -54,7 +53,6 @@ export const capsuleByIdSchema = {
         }
     }
 }
-
 export const companySchema = {
     data: {
         type: "object",
@@ -80,7 +78,6 @@ export const companySchema = {
         }
     }
 }
-
 export const dragonsSchema = {
     data: {
         type: "object",
@@ -209,4 +206,115 @@ export const dragonsSchema = {
           }
         }
       }
+}
+export const historySchema = {
+    data: {
+        type: "object",
+        properties: {
+        histories: {
+            type: "array",
+            items: {
+            type: "object",
+            properties: {
+                details:            { type: "string" },
+                event_date_unix:    { type: "integer" },
+                event_date_utc:     { type: "string" },
+                id:                 { type: "string" },
+                links: {
+                type: "object",
+                properties: {
+                    article:        { type: ["string", "null"] },
+                    reddit:         { type: ["string", "null"] },
+                    wikipedia:      { type: ["string", "null"] }
+                }
+                },
+                title:              { type: "string" }
+            }
+            }
+        }
+        }
+    }
+}
+export const rocketsSchema = {
+    data: {
+        type: "object",
+        properties: {
+        rockets: {
+            type: "array",
+            items: {
+            type: "object",
+            properties: {
+                active:         { type: "boolean" },
+                company:        { type: "string" },
+                country:        { type: "string" },
+                description:    { type: "string" },
+                first_flight:   { type: "string" },
+                id:             { type: "string" },
+                name:           { type: "string" },
+                stages:         { type: "integer" },
+                type:           { type: "string" },
+                wikipedia:      { type: "string" }
+            }
+            }
+        }
+        }
+    }
+}
+export const shipsSchema = {
+    data: {
+        type: "object",
+        properties: {
+        ships: {
+            type: "array",
+            items: {
+            type: "object",
+            properties: {
+                abs:        { type: "integer" },
+                active:     { type: "boolean" },
+                class:      { type: "integer" },
+                course_deg: { type: ["number", "null"] },
+                home_port:  { type: "string" },
+                id:         { type: "string" },
+                image:      { type: "string" },
+                imo:        { type: "integer" },
+                mmsi:       { type: "integer" },
+                model:      { type: ["string", "null"] },
+                name:       { type: "string" },
+                speed_kn:   { type: ["number", "null"] },
+                status:     { type: "string" },
+                type:       { type: "string" },
+                url:        { type: ["string", "null"] },
+                weight_kg:  { type: ["number", "null"] },
+                weight_lbs: { type: ["number", "null"] },
+                year_built: { type: "integer" }
+            }
+            }
+        }
+        }
+    }
+}
+export const coresSchema = {
+    data: {
+        type: "object",
+        properties: {
+        cores: {
+            type: "array",
+            items: {
+            type: "object",
+            properties: {
+                asds_attempts:  { type: "integer" },
+                asds_landings:  { type: "integer" },
+                block:          { type: ["integer", "null"] },
+                id:             { type: "string" },
+                original_launch:{ type: ["string", "null"] },
+                reuse_count:    { type: "integer" },
+                rtls_attempts:  { type: "integer" },
+                rtls_landings:  { type: "integer" },
+                status:         { type: "string" },
+                water_landing:  { type: ["boolean", "null"] }
+            }
+            }
+        }
+        }
+    }
 }
