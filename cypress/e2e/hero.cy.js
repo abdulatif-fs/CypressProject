@@ -2,6 +2,7 @@ var idNewData = 0
 let firstname = 'Abdul', lastname = 'fajar', totalprice = 100000, deposit= true, chekin = "2018-01-01", checkout = "2019-01-01", additionalNeeds = "kosong"
 let firstname2 = 'fajar', lastname2 = 'sidiq', totalprice2 = 200000, deposit2= false, chekin2 = "2018-01-02", checkout2 = "2019-01-02", additionalNeeds2 = "kosong"
 
+// https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-DeleteBooking
 describe('POST', ()=> {
     describe('+ Create new data', ()=> {
         it('status code 201', () => {
